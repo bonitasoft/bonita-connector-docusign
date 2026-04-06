@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
+  <implementationId>${docusign-send-envelope.impl.id}</implementationId>
+  <implementationVersion>${docusign-send-envelope.impl.version}</implementationVersion>
+  <definitionId>${docusign-send-envelope.def.id}</definitionId>
+  <definitionVersion>${docusign-send-envelope.def.version}</definitionVersion>
+  <implementationClassname>${docusign-send-envelope.main-class}</implementationClassname>
+  <hasSources>false</hasSources>
+  <description>[BETA] DocuSign Send Envelope connector implementation</description>
+
+<!-- retrieved from the pom.xml at build time -->
+${connector-dependencies}
+
+</implementation:connectorImplementation>

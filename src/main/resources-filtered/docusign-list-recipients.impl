@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
+  <implementationId>${docusign-list-recipients.impl.id}</implementationId>
+  <implementationVersion>${docusign-list-recipients.impl.version}</implementationVersion>
+  <definitionId>${docusign-list-recipients.def.id}</definitionId>
+  <definitionVersion>${docusign-list-recipients.def.version}</definitionVersion>
+  <implementationClassname>${docusign-list-recipients.main-class}</implementationClassname>
+  <hasSources>false</hasSources>
+  <description>[BETA] DocuSign List Recipients connector implementation</description>
+
+<!-- retrieved from the pom.xml at build time -->
+${connector-dependencies}
+
+</implementation:connectorImplementation>

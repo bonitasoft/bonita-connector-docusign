@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definition:ConnectorDefinition
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
+
+  <id>${docusign-list-recipients.def.id}</id>
+  <version>${docusign-list-recipients.def.version}</version>
+  <icon>docusign.png</icon>
+  <category icon="docusign.png" id="[BETA] DocuSign eSignature"/>
+
+  <!-- Connection inputs -->
+  <input name="integrationKey" type="java.lang.String" mandatory="true"/>
+  <input name="rsaPrivateKey" type="java.lang.String" mandatory="true"/>
+  <input name="userId" type="java.lang.String" mandatory="true"/>
+  <input name="accountId" type="java.lang.String" mandatory="true"/>
+  <input name="basePath" type="java.lang.String" mandatory="false" defaultValue="https://www.docusign.net/restapi"/>
+  <input name="oAuthBasePath" type="java.lang.String" mandatory="false" defaultValue="https://account.docusign.com"/>
+  <input name="connectTimeout" type="java.lang.Integer" mandatory="false" defaultValue="30000"/>
+  <input name="readTimeout" type="java.lang.Integer" mandatory="false" defaultValue="60000"/>
+
+  <!-- Envelope input -->
+  <input name="envelopeId" type="java.lang.String" mandatory="true"/>
+
+  <!-- Outputs -->
+  <output name="recipients" type="java.lang.String"/>
+  <output name="signerCount" type="java.lang.Integer"/>
+  <output name="completedSignerCount" type="java.lang.Integer"/>
+  <output name="allSignersDone" type="java.lang.Boolean"/>
+  <output name="success" type="java.lang.Boolean"/>
+  <output name="errorMessage" type="java.lang.String"/>
+
+  <!-- UI Pages -->
+  <page id="connectionPage">
+    <widget xsi:type="definition:Text" id="integrationKeyWidget" inputName="integrationKey"/>
+    <widget xsi:type="definition:Password" id="rsaPrivateKeyWidget" inputName="rsaPrivateKey"/>
+    <widget xsi:type="definition:Text" id="userIdWidget" inputName="userId"/>
+    <widget xsi:type="definition:Text" id="accountIdWidget" inputName="accountId"/>
+    <widget xsi:type="definition:Select" id="basePathWidget" inputName="basePath">
+      <items>https://demo.docusign.net/restapi</items>
+      <items>https://www.docusign.net/restapi</items>
+      <items>https://eu.docusign.net/restapi</items>
+      <items>https://au.docusign.net/restapi</items>
+    </widget>
+    <widget xsi:type="definition:Text" id="oAuthBasePathWidget" inputName="oAuthBasePath"/>
+    <widget xsi:type="definition:Text" id="connectTimeoutWidget" inputName="connectTimeout"/>
+    <widget xsi:type="definition:Text" id="readTimeoutWidget" inputName="readTimeout"/>
+  </page>
+  <page id="envelopePage">
+    <widget xsi:type="definition:Text" id="envelopeIdWidget" inputName="envelopeId"/>
+  </page>
+</definition:ConnectorDefinition>

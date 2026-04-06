@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definition:ConnectorDefinition
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
+
+  <id>${docusign-send-envelope.def.id}</id>
+  <version>${docusign-send-envelope.def.version}</version>
+  <icon>docusign.png</icon>
+  <category icon="docusign.png" id="[BETA] DocuSign eSignature"/>
+
+  <!-- Connection inputs -->
+  <input name="integrationKey" type="java.lang.String" mandatory="true"/>
+  <input name="rsaPrivateKey" type="java.lang.String" mandatory="true"/>
+  <input name="userId" type="java.lang.String" mandatory="true"/>
+  <input name="accountId" type="java.lang.String" mandatory="true"/>
+  <input name="basePath" type="java.lang.String" mandatory="false" defaultValue="https://www.docusign.net/restapi"/>
+  <input name="oAuthBasePath" type="java.lang.String" mandatory="false" defaultValue="https://account.docusign.com"/>
+  <input name="connectTimeout" type="java.lang.Integer" mandatory="false" defaultValue="30000"/>
+  <input name="readTimeout" type="java.lang.Integer" mandatory="false" defaultValue="60000"/>
+
+  <!-- Document inputs -->
+  <input name="documentBase64" type="java.lang.String" mandatory="true"/>
+  <input name="documentName" type="java.lang.String" mandatory="true"/>
+  <input name="documentId" type="java.lang.String" mandatory="false" defaultValue="1"/>
+  <input name="fileExtension" type="java.lang.String" mandatory="false" defaultValue="pdf"/>
+  <input name="signHereTabs" type="java.lang.String" mandatory="false"/>
+
+  <!-- Recipient inputs -->
+  <input name="signerEmail" type="java.lang.String" mandatory="true"/>
+  <input name="signerName" type="java.lang.String" mandatory="true"/>
+  <input name="signerRoutingOrder" type="java.lang.String" mandatory="false" defaultValue="1"/>
+  <input name="additionalSigners" type="java.lang.String" mandatory="false"/>
+  <input name="ccRecipients" type="java.lang.String" mandatory="false"/>
+
+  <!-- Configuration inputs -->
+  <input name="emailSubject" type="java.lang.String" mandatory="true"/>
+  <input name="emailBody" type="java.lang.String" mandatory="false"/>
+  <input name="expirationDays" type="java.lang.Integer" mandatory="false" defaultValue="120"/>
+  <input name="reminderEnabled" type="java.lang.Boolean" mandatory="false" defaultValue="true"/>
+  <input name="reminderDelayDays" type="java.lang.Integer" mandatory="false" defaultValue="3"/>
+  <input name="reminderFrequencyDays" type="java.lang.Integer" mandatory="false" defaultValue="5"/>
+
+  <!-- Outputs -->
+  <output name="envelopeId" type="java.lang.String"/>
+  <output name="envelopeStatus" type="java.lang.String"/>
+  <output name="statusDateTime" type="java.lang.String"/>
+  <output name="envelopeUri" type="java.lang.String"/>
+  <output name="success" type="java.lang.Boolean"/>
+  <output name="errorMessage" type="java.lang.String"/>
+
+  <!-- UI Pages -->
+  <page id="connectionPage">
+    <widget xsi:type="definition:Text" id="integrationKeyWidget" inputName="integrationKey"/>
+    <widget xsi:type="definition:Password" id="rsaPrivateKeyWidget" inputName="rsaPrivateKey"/>
+    <widget xsi:type="definition:Text" id="userIdWidget" inputName="userId"/>
+    <widget xsi:type="definition:Text" id="accountIdWidget" inputName="accountId"/>
+    <widget xsi:type="definition:Select" id="basePathWidget" inputName="basePath">
+      <items>https://demo.docusign.net/restapi</items>
+      <items>https://www.docusign.net/restapi</items>
+      <items>https://eu.docusign.net/restapi</items>
+      <items>https://au.docusign.net/restapi</items>
+    </widget>
+    <widget xsi:type="definition:Text" id="oAuthBasePathWidget" inputName="oAuthBasePath"/>
+    <widget xsi:type="definition:Text" id="connectTimeoutWidget" inputName="connectTimeout"/>
+    <widget xsi:type="definition:Text" id="readTimeoutWidget" inputName="readTimeout"/>
+  </page>
+  <page id="documentPage">
+    <widget xsi:type="definition:TextArea" id="documentBase64Widget" inputName="documentBase64"/>
+    <widget xsi:type="definition:Text" id="documentNameWidget" inputName="documentName"/>
+    <widget xsi:type="definition:Text" id="documentIdWidget" inputName="documentId"/>
+    <widget xsi:type="definition:Text" id="fileExtensionWidget" inputName="fileExtension"/>
+    <widget xsi:type="definition:TextArea" id="signHereTabsWidget" inputName="signHereTabs"/>
+  </page>
+  <page id="recipientsPage">
+    <widget xsi:type="definition:Text" id="signerEmailWidget" inputName="signerEmail"/>
+    <widget xsi:type="definition:Text" id="signerNameWidget" inputName="signerName"/>
+    <widget xsi:type="definition:Text" id="signerRoutingOrderWidget" inputName="signerRoutingOrder"/>
+    <widget xsi:type="definition:TextArea" id="additionalSignersWidget" inputName="additionalSigners"/>
+    <widget xsi:type="definition:TextArea" id="ccRecipientsWidget" inputName="ccRecipients"/>
+  </page>
+  <page id="configurationPage">
+    <widget xsi:type="definition:Text" id="emailSubjectWidget" inputName="emailSubject"/>
+    <widget xsi:type="definition:TextArea" id="emailBodyWidget" inputName="emailBody"/>
+    <widget xsi:type="definition:Text" id="expirationDaysWidget" inputName="expirationDays"/>
+    <widget xsi:type="definition:Checkbox" id="reminderEnabledWidget" inputName="reminderEnabled"/>
+    <widget xsi:type="definition:Text" id="reminderDelayDaysWidget" inputName="reminderDelayDays"/>
+    <widget xsi:type="definition:Text" id="reminderFrequencyDaysWidget" inputName="reminderFrequencyDays"/>
+  </page>
+</definition:ConnectorDefinition>

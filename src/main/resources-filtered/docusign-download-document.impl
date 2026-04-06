@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
+  <implementationId>${docusign-download-document.impl.id}</implementationId>
+  <implementationVersion>${docusign-download-document.impl.version}</implementationVersion>
+  <definitionId>${docusign-download-document.def.id}</definitionId>
+  <definitionVersion>${docusign-download-document.def.version}</definitionVersion>
+  <implementationClassname>${docusign-download-document.main-class}</implementationClassname>
+  <hasSources>false</hasSources>
+  <description>[BETA] DocuSign Download Document connector implementation</description>
+
+<!-- retrieved from the pom.xml at build time -->
+${connector-dependencies}
+
+</implementation:connectorImplementation>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
+  <implementationId>${docusign-void-envelope.impl.id}</implementationId>
+  <implementationVersion>${docusign-void-envelope.impl.version}</implementationVersion>
+  <definitionId>${docusign-void-envelope.def.id}</definitionId>
+  <definitionVersion>${docusign-void-envelope.def.version}</definitionVersion>
+  <implementationClassname>${docusign-void-envelope.main-class}</implementationClassname>
+  <hasSources>false</hasSources>
+  <description>[BETA] DocuSign Void Envelope connector implementation</description>
+
+<!-- retrieved from the pom.xml at build time -->
+${connector-dependencies}
+
+</implementation:connectorImplementation>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
+  <implementationId>${docusign-get-envelope-status.impl.id}</implementationId>
+  <implementationVersion>${docusign-get-envelope-status.impl.version}</implementationVersion>
+  <definitionId>${docusign-get-envelope-status.def.id}</definitionId>
+  <definitionVersion>${docusign-get-envelope-status.def.version}</definitionVersion>
+  <implementationClassname>${docusign-get-envelope-status.main-class}</implementationClassname>
+  <hasSources>false</hasSources>
+  <description>[BETA] DocuSign Get Envelope Status connector implementation</description>
+
+<!-- retrieved from the pom.xml at build time -->
+${connector-dependencies}
+
+</implementation:connectorImplementation>
